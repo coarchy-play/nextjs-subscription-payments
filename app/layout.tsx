@@ -3,11 +3,6 @@ import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import { PropsWithChildren } from 'react';
 import 'styles/main.css';
-import {
-  getSession,
-  getSubscription,
-  getActiveProductsWithPrices
-} from '@/app/supabase-server';
 
 const meta = {
   title: 'Next.js Subscription Starter',
@@ -49,11 +44,6 @@ export default async function RootLayout({
   // This will be populated with nested layouts or pages
   children
 }: PropsWithChildren) {
-  const [session, products, subscription] = await Promise.all([
-    getSession(),
-    getActiveProductsWithPrices(),
-    getSubscription()
-  ]);
 
   return (
     <html lang="en">
